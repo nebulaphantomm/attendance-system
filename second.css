@@ -1,0 +1,260 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Universe background */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #1f2937 0, #020818 40%, #000000 100%);
+    color: #e5e7eb;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+
+/* Soft blue glow behind content */
+.background-glow {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 20% 0, rgba(59, 130, 246, 0.2), transparent 55%),
+                radial-gradient(circle at 80% 100%, rgba(96, 165, 250, 0.15), transparent 55%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Main app container */
+.app-container {
+    width: 100%;
+    max-width: 960px;
+    background: rgba(5, 15, 37, 0.95);
+    border-radius: 18px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.8);
+    padding: 2rem 1.5rem 2.5rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    font-size: 1.9rem;
+    color: #e5e7eb;
+}
+
+.app-header p {
+    margin-top: 0.5rem;
+    color: #9ca3af;
+    font-size: 0.95rem;
+}
+
+/* Main layout: two cards side by side on big screens */
+.app-main {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.control-card,
+.summary-card,
+.list-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95));
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid rgba(55, 65, 81, 0.8);
+}
+
+.control-card h2,
+.summary-card h2,
+.list-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #e5e7eb;
+}
+
+/* Inputs & labels */
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-bottom: 0.4rem;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba(55, 65, 81, 0.9);
+    background: #020617;
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+input[type="date"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: white;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.55);
+}
+
+.btn.danger {
+    background: linear-gradient(135deg, #b91c1c, #ef4444);
+    color: white;
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.4);
+}
+
+.btn.danger:hover {
+    background: linear-gradient(135deg, #991b1b, #dc2626);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(239, 68, 68, 0.5);
+}
+
+/* Hint text */
+.hint-text {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.hint-text.small {
+    font-size: 0.8rem;
+}
+
+/* Summary grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.summary-item {
+    padding: 0.8rem 0.9rem;
+    border-radius: 10px;
+    background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), rgba(15, 23, 42, 0.9));
+    border: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.summary-item .label {
+    display: block;
+    font-size: 0.78rem;
+    color: #9ca3af;
+    margin-bottom: 0.2rem;
+}
+
+.summary-item .value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.summary-item .value.present {
+    color: #22c55e;
+}
+
+.summary-item .value.absent {
+    color: #ef4444;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+th, td {
+    padding: 0.6rem 0.5rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 500;
+    color: #9ca3af;
+    border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.65);
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.status-present {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+}
+
+.status-absent {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 1.5rem 1.1rem 2rem;
+    }
+
+    .app-main {
+        grid-template-columns: 1fr;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+}
